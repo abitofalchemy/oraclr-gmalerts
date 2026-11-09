@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "oraclr"
+version = "0.1.0"
+description = "A tool to process Google Alerts from Gmail and generate CSV reports"
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [
+    {name = "Oraclr Team"}
+]
+dependencies = [
+    "google-auth>=2.23.0",
+    "google-auth-oauthlib>=1.1.0",
+    "google-auth-httplib2>=0.1.1",
+    "google-api-python-client>=2.100.0",
+    "beautifulsoup4>=4.12.0",
+    "requests>=2.31.0",
+    "click>=8.1.0",
+]
+
+[project.scripts]
+oraclr = "oraclr.cli:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=7.4.0",
+    "black>=23.9.0",
+    "flake8>=6.1.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
